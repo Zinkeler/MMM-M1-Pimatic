@@ -44,6 +44,7 @@ module.exports = NodeHelper.create({
                 });
             });
             self.sendSocketNotification('PIMATIC_NOTIFICATION', deviceValues);
+            self.sendSocketNotification('PIMATIC_VARIABLES', variables);
         });
 
         // receive and process pimatic device attribute changes 
