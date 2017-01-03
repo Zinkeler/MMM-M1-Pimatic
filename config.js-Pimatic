@@ -1,0 +1,123 @@
+/* Magic Mirror Config Sample
+ *
+ * By Michael Teeuw http://michaelteeuw.nl
+ * MIT Licensed.
+ */
+
+var config = {
+	port: 8080,
+
+	language: 'de',
+	timeFormat: 24,
+	units: 'metric',
+
+	modules: [
+		{
+			module: 'alert',
+		},      
+        {
+            module: 'MMM-M1-Pimatic',
+            header: 'Notification Board',
+            position: 'top_center',
+            config: {
+                host :'pimatic',
+                port : 80,
+                user : 'yyyyy',
+                passwd : 'xxxxxx',
+                device: [
+                    { 
+                        name: 'Alarmanlage',
+                        icon: 'icon-Alarmanlage',
+                        attributeName: 'Alarmanlage.contact',
+                        defaultValue: false,
+                        notification : 'Eingeschaltet'
+                    },
+                    {
+                        name: 'Garage',
+                        icon: 'icon-Garage',
+                        attributeName: 'garageDOORstatus.contact',
+                        defaultValue: true,
+                        notification: 'Geöffnet'
+                    },                  
+                    {
+                        name: 'Müllabfuhr',
+                        icon: 'icon-Muellabfuhr',
+                        attributeName: 'dgarbagecollectioninfo.Müllabfuhr',
+                        defaultValue: 'heute keine Abfuhr',
+                        notification: '@'
+                    },
+                    {
+                        name: 'Termine',
+                        icon: 'icon-Termine',
+                        attributeName: 'dTermine.Termine',
+                        defaultValue: 'keine',
+                        notification: '@'
+                    },
+                    {
+                        name: 'Systemmeldungen',
+                        icon: 'icon-Systemmeldungen',
+                        attributeName: 'dSystemMeldungen.Systemstatus',
+                        defaultValue: 'keine Meldungen',
+                        notification: '@'
+                    },
+                    {
+                        name: 'Wohnzimmer Steckdose 15 (Test)',
+                        icon: 'icon-Default',
+                        attributeName: 'wallplug15.state',
+                        defaultValue: false,
+                        notification: 'eingeschaltet'
+                    },                    
+                ],
+            },
+        },        
+        {
+            module: 'MMM-M2-Pimatic',
+            header: 'Temperaturen',
+            position: 'bottom_center',
+            config: {
+                sensors: [
+                    {
+                        name: 'Wohnzimmer',
+                        deviceId: 'Temperaturen',
+                        attribute: 'Wohnzimmer',
+                        unit: '&deg',
+                        icon: 'wi wi-thermometer',
+                    },
+                    { 
+                        name: 'Aussen',
+                        deviceId: 'ThermiComPuffer',
+                        attribute: 'T7',
+                        unit: '&deg',
+                        icon: 'wi wi-thermometer',
+                    },                     
+                    {
+                        name: 'Puffer',
+                        deviceId: 'ThermiComPuffer',
+                        attribute: 'T6',
+                        unit: '&deg',
+                        icon: 'wi wi-thermometer',
+                    },
+                    {
+                        name: 'Gaskessel',
+                        deviceId: 'ThermiComKessel',
+                        attribute: 'T9',
+                        unit: '&deg',
+                        icon: 'wi wi-thermometer',
+                    },                    
+                    { 
+                        name: 'Kollektor',
+                        deviceId: 'ThermiComPuffer',
+                        attribute: 'T1',
+                        unit: '&deg',
+                        icon: 'wi wi-thermometer',
+                    },
+                  
+                ]
+            }
+        },
+	]
+
+};
+
+/*************** DO NOT EDIT THE LINE BELOW ***************/
+if (typeof module !== 'undefined') {module.exports = config;}
