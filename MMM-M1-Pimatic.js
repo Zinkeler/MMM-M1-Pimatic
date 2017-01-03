@@ -46,7 +46,7 @@ Module.register("MMM-M1-Pimatic", {
             this.connected = true;
             this.updateDom(1000);
         }
-        if ( notification === 'PIMATIC_ATTRIBUTE_CHANGED' ) {
+        if ( notification === 'PIMATIC_ATTRIBUTE_CHANGED' || notification === 'PIMATIC_VARIABLES') {
             if ( this.loaded ){ 
                 this.sendNotification(notification, payload);
             }
