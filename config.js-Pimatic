@@ -1,6 +1,5 @@
-/* Magic Mirror Config Sample
+/* Magic Mirror Config Sample for pimatic
  *
- * By Michael Teeuw http://michaelteeuw.nl
  * MIT Licensed.
  */
 
@@ -22,7 +21,7 @@ var config = {
             config: {
                 host :'pimatic',
                 port : 80,
-                user : 'yyyyy',
+                user : 'yyyyyy',
                 passwd : 'xxxxxx',
                 device: [
                     { 
@@ -75,41 +74,27 @@ var config = {
             header: 'Temperaturen',
             position: 'bottom_center',
             config: {
-                sensors: [
+                unit: '&deg',
+                temperatureSensors: [
                     {
                         name: 'Wohnzimmer',
-                        deviceId: 'Temperaturen',
-                        attribute: 'Wohnzimmer',
-                        unit: '&deg',
-                        icon: 'wi wi-thermometer',
+                        attributeName: 'Temperaturen.Wohnzimmer',
                     },
                     { 
                         name: 'Aussen',
-                        deviceId: 'ThermiComPuffer',
-                        attribute: 'T7',
-                        unit: '&deg',
-                        icon: 'wi wi-thermometer',
+                        attributeName: 'ThermiComPuffer.T7',
                     },                     
                     {
                         name: 'Puffer',
-                        deviceId: 'ThermiComPuffer',
-                        attribute: 'T6',
-                        unit: '&deg',
-                        icon: 'wi wi-thermometer',
+                        attributeName: 'ThermiComPuffer.T6',
                     },
                     {
                         name: 'Gaskessel',
-                        deviceId: 'ThermiComKessel',
-                        attribute: 'T9',
-                        unit: '&deg',
-                        icon: 'wi wi-thermometer',
+                        attributeName: 'ThermiComKessel.T9',
                     },                    
                     { 
                         name: 'Kollektor',
-                        deviceId: 'ThermiComPuffer',
-                        attribute: 'T1',
-                        unit: '&deg',
-                        icon: 'wi wi-thermometer',
+                        attributeName: 'ThermiComPuffer.T1',
                     },
                   
                 ]
